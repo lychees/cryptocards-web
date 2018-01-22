@@ -12,3 +12,4 @@ install:
 
 script:
   - commitlint-travis
+  - yarn run lint
