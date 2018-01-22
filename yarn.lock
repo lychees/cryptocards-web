@@ -186,6 +186,14 @@
   dependencies:
     find-up "^2.1.0"
 
+"@commitlint/travis-cli@^6.0.2":
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/@commitlint/travis-cli/-/travis-cli-6.0.2.tgz#b48f69142c8b98d8d4cd421d4bffff1308caca20"
+  dependencies:
+    "@commitlint/cli" "^6.0.2"
+    babel-runtime "6.26.0"
+    execa "0.9.0"
+
 "@marionebl/sander@^0.6.0":
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/@marionebl/sander/-/sander-0.6.1.tgz#1958965874f24bc51be48875feb50d642fc41f7b"
