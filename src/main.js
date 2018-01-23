@@ -3,12 +3,14 @@
 import Vue from 'vue';
 import App from './App';
 import router from './router';
+import store from './store';
 
 Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  store, // this will inject the store instance to all child components.
   router,
   components: { App },
   template: '<App/>',
