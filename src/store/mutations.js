@@ -13,6 +13,9 @@
 // import * as types from './mutation-types';
 
 export default {
+  setLocale(state, locale) {
+    state.locale = locale;
+  },
   /* Examples:
   [types.ADD_TO_CART](state, payload) {
     state.cart.push(payload);

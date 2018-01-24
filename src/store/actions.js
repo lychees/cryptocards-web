@@ -14,8 +14,17 @@
 // Please use commit() to update the state.
 
 // import * as types from './mutation-types';
+import api from '@/api';
 
 export default {
+  async initLocale({ commit }) {
+    const locale = await api.getLocale();
+    commit('setLocale', locale);
+  },
+  async setLocale({ commit }, locale) {
+    await api.setLocale(locale);
+    commit('setLocale', locale);
+  },
   /* Examples:
   increment(context) {
     context.commit('increment');
