@@ -9,8 +9,7 @@ import i18n from './i18n';
 
 Vue.config.productionTip = false;
 
-/* eslint-disable no-new */
-new Vue({
+const app = new Vue({
   el: '#app',
   i18n,
   store, // this will inject the store instance to all child components.
@@ -18,3 +17,9 @@ new Vue({
   components: { App },
   template: '<App/>',
 });
+
+if (process.env.NODE_ENV !== 'production') {
+  Vue.config.productionTip = true;
+  window.app = app;
+  window.store = store;
+}
