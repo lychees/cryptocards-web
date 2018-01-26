@@ -1,8 +1,11 @@
 <template>
   <div class="hello">
     <h1>{{ $t("hello world") }}</h1>
-    <button @click="changeLocale('zh')">中文</button>
-    <button @click="changeLocale('en')">English</button>
+    <ul @click="changeLocale">
+      <li v-for="(item,index) in $config.i18n" :key="index" >
+        <button :data-locale="item.locale">{{item.display}}</button>
+      </li>
+    </ul>
     <h2>Essential Links</h2>
     <ul>
       <li>
@@ -89,8 +92,11 @@
 export default {
   name: 'HelloWorld',
   methods: {
-    changeLocale(locale) {
-      this.$store.dispatch('setLocale', locale);
+    changeLocale(e) {
+      const locale = e.target.dataset.locale;
+      if (locale) {
+        this.$store.dispatch('setLocale', locale);
+      }
     },
   },
 };
