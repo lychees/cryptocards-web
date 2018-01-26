@@ -1,9 +1,10 @@
 <template>
   <div class="hello">
     <h1>{{ $t("hello world") }}</h1>
+    <div>Current Language: {{$store.getters.currentLangDisplay}}</div>
     <ul @click="changeLocale">
       <li v-for="(item,index) in $config.i18n" :key="index" >
-        <button :data-locale="item.locale">{{item.display}}</button>
+        <button :data-locale="item.locale">{{item.langDisplay}}</button>
       </li>
     </ul>
     <h2>Essential Links</h2>
