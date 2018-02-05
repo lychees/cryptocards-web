@@ -9,6 +9,7 @@
 // https://vuex.vuejs.org/en/modules.html#module-reuse
 export default () => ({
   locale: '',
+  me: null,
   /* Example
   msg: 'HelloWord',
   todos: [

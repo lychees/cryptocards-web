@@ -24,6 +24,7 @@ export default {
   },
   created() {
     this.$store.dispatch('initLocale');
+    this.$store.dispatch('FETCH_ME');
   },
   computed: {
     locale() {

@@ -25,6 +25,10 @@ export default {
     await api.setLocale(locale);
     commit('setLocale', locale);
   },
+  async FETCH_ME({ commit }) {
+    const me = await api.getMe();
+    commit('SET_ME', me);
+  },
   /* Examples:
   increment(context) {
     context.commit('increment');

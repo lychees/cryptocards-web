@@ -16,6 +16,9 @@ export default {
   setLocale(state, locale) {
     state.locale = locale;
   },
+  SET_ME(state, me) {
+    state.me = me;
+  },
   /* Examples:
   [types.ADD_TO_CART](state, payload) {
     state.cart.push(payload);
