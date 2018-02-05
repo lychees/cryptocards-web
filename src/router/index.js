@@ -38,11 +38,6 @@ export default new Router({
       component: UserView,
     },
     {
-      path: '/my/:type?/:page(\\d+)?',
-      name: 'My',
-      component: UserView,
-    },
-    {
       path: '/sign-in',
       name: 'SignIn',
       component: SignInView,
