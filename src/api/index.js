@@ -9,6 +9,7 @@ const User = () => ({
 });
 const Card = () => ({
   id: faker.random.uuid(),
+  type: 'Card',
   name: faker.random.word(),
   isNew: Math.random() > 0.8,
   imageUrl: faker.image.image(),
@@ -16,15 +17,18 @@ const Card = () => ({
   createBy: faker.finance.bitcoinAddress(),
   rarity: Math.random(),
   owner: new User(),
+  bio: faker.lorem.paragraphs(),
 });
 const CardPack = () => ({
   id: faker.random.uuid(),
+  type: 'CardPack',
   isNew: Math.random() > 0.8,
   imageUrl: faker.image.image(),
   createAt: new Date(faker.date.past()).getTime(),
   createBy: faker.finance.bitcoinAddress(),
   rarity: Math.random(),
   owner: new User(),
+  bio: faker.lorem.paragraphs(),
 });
 const Auction = () => ({
   id: faker.random.uuid(),
