@@ -40,20 +40,27 @@
                      :to="{ name: 'Activity'}">{{ $t("Activity") }}</router-link>
       </div>
       <div class="Header-group">
-        <a class="Header-group-toggleIcon"><img src="/icons/group.svg"></a>
-        <div class="Header-dropdown Header-navigation-dropdown">
+        <a class="Header-group-toggleIcon"
+           @click="onDropdown">≡</a>
+        <div class="Header-dropdown"
+             :class="{'Header-navigation-dropdown': !dropdown}">
           <router-link v-if="me"
                        class="Header-navigation-item"
-                       :class="{'Header-navigation-item--active': isActive('Invite')}"
+                       :class="{'Header-navigation-item--active': isActive('Invite'),'Header-navigation-dropdown-item': dropdown}"
+
                        :to="{ name: 'Invite'}">{{ $t("Invite") }}</router-link>
           <router-link class="Header-navigation-item"
-                       :class="{'Header-navigation-item--active': isActive('About')}"
+                       :class="{'Header-navigation-item--active': isActive('About'),'Header-navigation-dropdown-item': dropdown}"
+
                        :to="{ name: 'About'}">{{ $t("About") }}</router-link>
           <router-link class="Header-navigation-item"
-                       :class="{'Header-navigation-item--active': isActive('Faq')}"
+                       :class="{'Header-navigation-item--active': isActive('Faq'),'Header-navigation-dropdown-item': dropdown}"
+
                        :to="{ name: 'Faq'}">{{ $t("FAQs") }}</router-link>
-          <a class="Header-navigation-item">
-            <select class="Filter-select"
+          <a class="Header-navigation-item"
+             style="margin-left:0"
+             :class="{'Header-navigation-dropdown-item': dropdown}">
+            <select style="direction: rtl;"
                     v-model="locale">
               <option v-for="(item) in $config.i18n"
                       :key="item.locale"
@@ -90,6 +97,16 @@ export default {
       set(value) {
         this.$store.dispatch('setLocale', value);
       },
+    },
+  },
+  data() {
+    return {
+      dropdown: false,
+    };
+  },
+  methods: {
+    onDropdown() {
+      this.dropdown = !this.dropdown;
     },
   },
 };
