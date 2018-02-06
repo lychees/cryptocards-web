@@ -1,0 +1,2 @@
+webpackJsonp([2],{"8kqy":function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var s={render:function(){var e=this.$createElement;return(this._self._c||e)("div",{staticClass:"HomeView"},[this._v("\n  HomeView\n")])},staticRenderFns:[]};var i=n("VU/8")({name:"HomeView"},s,!1,function(e){n("sEYX")},"data-v-efa64b94",null);t.default=i.exports},sEYX:function(e,t){}});
+//# sourceMappingURL=2.bd6d2b9aff99efd350af.js.map
