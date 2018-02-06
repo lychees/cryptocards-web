@@ -1,5 +1,9 @@
 import Cookie from 'js-cookie';
 import faker from 'faker';
+import Web3 from 'web3';
+
+const web3Provider = window.web3 ? window.web3.currentProvider : null;
+const web3 = web3Provider ? new Web3(web3Provider) : null;
 
 // Mock
 const User = () => ({
@@ -61,7 +65,20 @@ export default {
     Cookie.set('locale', locale, { expires: 365 });
   },
   async getMe() {
-    return Math.random() > 0.5 ? new User() : null;
+    if (!web3) {
+      throw Error('NO_METAMASK');
+    }
+    return new Promise((resolve, reject) => {
+      web3.eth.getAccounts((error, accounts) => {
+        const address = accounts[0];
+        if (address) {
+          const user = new User();
+          user.address = address;
+          return resolve(user);
+        }
+        return reject(new Error('METAMASK_LOCKED'));
+      });
+    });
   },
   async getUser(address) {
     const user = new User();

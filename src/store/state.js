@@ -10,6 +10,7 @@
 export default () => ({
   locale: '',
   me: null,
+  signInError: null,
   /* Example
   msg: 'HelloWord',
   todos: [

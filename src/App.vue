@@ -24,6 +24,9 @@ export default {
   created() {
     this.$store.dispatch('initLocale');
     this.$store.dispatch('FETCH_ME');
+    setInterval(() => {
+      this.$store.dispatch('FETCH_ME');
+    }, 1000);
   },
   computed: {
     locale() {
